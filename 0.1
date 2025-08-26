@@ -1,0 +1,223 @@
+Jupyter Notebook and Python Practice
+This lab we will practice using Jupyter Notebooks: writing formatted text in Markdown cells and python code in Code cells.
+
+Save a copy of this file so that you can edit it.
+
+Follow the prompts and edit the cells. Use the "Run" button to evaluate the cells (to either format the text or run the python code).
+
+Part 1: Working with Markdown cells
+This cell is Markdown. Double click to edit it. Use bullets to write your name, your uniqname, and your section.
+
+Name: Katerina Peck
+Uniqname: klpeck
+Section Number: 200
+You can also use the tool bar in Google Colab to help you write Markdown. In Great Lakes you will need to be able to write the Markdown directly, so it would be good to bookmark this Guide to Markdown).
+
+Click on this cell. Now click on the Insert -> Text Cell" menu item to create a new Markdown cell.
+
+DATASCI 101, Introduction to Data Science
+Section 200 Meeting Time: Tues/Thurs 8:30-9:50am, Angell Auditorium B
+Section 201 Lab Time: Wednesday at 10:00am
+Section 202 Lab Time: Wednesday at 8:30am
+Section 203 Lab Time: Wednesday at 11:30am
+Section 204: Wednesday at 2:30pm
+Pandas Documentation LINK: https://pandas.pydata.org/
+
+Open up a new tab with our Canvas apge. Add add the following items in your new markdown cell:
+
+A large header with the name of this course.
+A bulleted list with the meeting time and the 3 lab times for your section.
+Make your lab section bold so you don't forget. ;-).
+Add a link to the pandas documentation at https://pandas.pydata.org/ so it can be easily reached later.
+Run the cell to see the formatting.
+
+Part 2: Python Cells
+Below is a Python cell. Click on the cell and click the Run button. Do it again. What do you notice?
+
+I notice that the python cell first imports certain dates and time, and the "datetime.datetime.now()" function outputs the data that was imported, which is the year, 2025, the month, 8, the day, 25, and 4 other values.
+
+[ ]
+import datetime
+datetime.datetime.now()
+datetime.datetime(2025, 8, 25, 19, 4, 44, 478749)
+Next we have three cells. Run each in order.
+
+
+[ ]
+# Cell 1
+then = datetime.datetime.now()
+
+[ ]
+# Cell 2
+now = datetime.datetime.now()
+
+[ ]
+# Cell 3
+now > then
+False
+
+[ ]
+# Cell 1
+then = datetime.datetime.now()
+
+[ ]
+# Cell 3
+now > then
+False
+Now go run Cell 1 again. Then run Cell 3. What happens? Why is the case?
+
+If we absolutely must enforce having code execute in order, we need to place it into a single cell. Create a new code cell and copy and paste the code in the proper order.
+
+Sometimes we have too much code in a single cell. Run the cell below. We wanted to compute a reciprocal but ended up computing something totally different. (Note: the variable names here are to suggest what we expected to get, not what we will get when we run this.)
+
+
+[ ]
+this_absolutely_contains_a_positive_value = 2
+this_absolutely_contains_a_positive_value = this_absolutely_contains_a_positive_value^-1
+this_absolutely_contains_a_positive_value
+# Split here
+another_positive_value = this_absolutely_contains_a_positive_value + 1
+another_positive_value
+-2
+Use the following code cell and just put the first three lines in it.
+
+
+[ ]
+## cell 1
+this_absolutely_contains_a_positive_value = 2
+this_absolutely_contains_a_positive_value = this_absolutely_contains_a_positive_value^-1
+this_absolutely_contains_a_positive_value
+-3
+Use this second cell with just the last two. Run these to see where the computations went wrong.
+
+
+[ ]
+## cell 2
+another_positive_value = this_absolutely_contains_a_positive_value + 1
+another_positive_value
+-2
+It turns out we confused the ^ operator (which performs a low level bit shift operation) with ** (which performs exponentiation). We wanted to compute
+1𝑥
+by raising a positive value to the "-1" power.
+
+Using ** correct the code above and print out the result.
+
+
+[ ]
+## Copy and paste the bad code, then correct it
+this_absolutely_contains_a_positive_value = 2
+this_absolutely_contains_a_positive_value = this_absolutely_contains_a_positive_value**-1
+this_absolutely_contains_a_positive_value
+# Split here
+another_positive_value = this_absolutely_contains_a_positive_value + 1
+another_positive_value
+1.5
+Part 3: Python Practice
+In the following, we use python to compute a things related to the date of UM's founding: August 26, 1817. If you need help, use the "Details" box to get solutions.
+
+Below is a code cell. Create a variable called founded with the value 1817.
+
+
+[ ]
+# code cell
+Details
+While we know what year it is, let's write a program that use the date of execution to figure out the current year.
+
+Similar to an earlier step, create a variable now that contains the result of datetime.date.today() (a function call that gets the current date).
+
+
+[ ]
+# solution
+Details
+We can look inside now to find the year component by using now.year. Compute the number of years since the University of Michigan's founding without typing in any numbers.
+
+
+[ ]
+# solution
+Details
+We can even compute the number of days since August 26, 1817 to today by creating a new datetime object.
+
+The International Standards Organization date format is YEAR-MONTH-DAY, with 4 digit years, two digit months, and two digit days. Use datetime.date.fromisoformat("UMICH'S FOUNDING") to create a new variable founding that holds the date of UM's founding. Print out the variable to check your work.
+
+
+[ ]
+# solution
+Details
+Use the - operator to compute the difference between now and founding. For how many days has UM existed?
+
+
+[ ]
+# solution
+Details
+This is an example of abstraction: we can take the difference of many things (numbers, dates, more that we will see). The - focuses our attention on differences, but allows each data type to figure out what a difference means in practical terms.
+
+Part 4: Collections, Functions, and Loops
+Here is a set of dates as strings:
+
+
+[ ]
+michigan_statehood = "1837-01-26"
+mackinac_national_park = "1857-03-03"
+ford_motor_co = "1903-06-16"
+joe_louis_wins = "1937-06-22"
+macinaw_bridge = "1957-11-01"
+gerald_ford_president = "1974-08-09"
+Write a function that will turn a string into a date and compute the number of days since the founding of UM. Demonstrate on several of the dates.
+
+
+[ ]
+# function
+Details
+Create a list that includes all of the dates. (Useful tip: start typing the variable name and hit "tab" to autocomplete the rest of the name.)
+
+
+[ ]
+# list
+Details
+Remember, a for loop computes the same thing for each item in a collection. For example, here we compute the squares of some values.
+
+
+[ ]
+for a in [1, 2, 3, 4, 5]:
+  print(a**2)
+1
+4
+9
+16
+25
+Now write a for loop to compute the days since founding for each item in the list. You can use the print function to display these results to the screen.
+
+
+[ ]
+# for loop
+Details
+A list comprehension is a more concise way to write a for loop that creates a list.
+
+Example
+
+
+[ ]
+squares = [x**2 for x in [1, 2, 3, 4, 5]]
+squares
+[1, 4, 9, 16, 25]
+Use a list comprehension to create a new list with the number of days since founding.
+
+
+[ ]
+# list comprehension
+Details
+More Python Exercises
+If you finish this lab and have more time to practice Python, please visit 30 Days of Python. This great website contains explanations of Python with many exercises.
+
+So far we have covered (perhaps in slightly less depth):
+
+Day 2: Variables, Built-in Functions
+Day 3: Operators
+Day 4: Strings
+Day 5: Lists
+Day 10: Loops
+Each day explains the concepts and provides examples, and (most importantly for us) includes exercises at the end. Starting with Day 2, select 2 or 3 exercises per day and work through them. Feel free to ask your GSI for help.
+
+Add as many code (and markdown) cells as you need after here:
+
+Colab paid products - Cancel contracts here
